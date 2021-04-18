@@ -4,7 +4,7 @@ USE seguimiento_de_proyectos;
 
 CREATE TABLE cliente (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	cuit VARCHAR(10) NOT NULL,
+	cuit VARCHAR(11) NOT NULL,
 	razon_social VARCHAR(100),
 	domicilio VARCHAR(100)
 );
