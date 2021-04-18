@@ -5,7 +5,7 @@ USE seguimiento_de_proyectos;
 CREATE TABLE cliente (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	cuit VARCHAR(10) NOT NULL,
-	nombre VARCHAR(100),
+	razon_social VARCHAR(100),
 	domicilio VARCHAR(100)
 );
 
@@ -19,7 +19,10 @@ CREATE TABLE proyecto (
 
 CREATE TABLE participante (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nombre VARCHAR(100) NOT NULL
+	nombre VARCHAR(100) NOT NULL,
+	apellido VARCHAR(100) NOT NULL,
+	dni INT NOT NULL,
+	edad INT NOT NULL
 );
 
 CREATE TABLE participacion (
@@ -40,3 +43,4 @@ CREATE TABLE asignacion_horas (
 	CONSTRAINT fk_participacion_asignacion FOREIGN KEY (id_participacion)
 	REFERENCES participacion(id)
 );
+
