@@ -30,6 +30,7 @@ CREATE TABLE participacion (
 	id_participante INT NOT NULL,
 	id_proyecto INT NOT NULL,
 	rol VARCHAR(100),
+	horas_preasignadas INT NOT NULL,
 	CONSTRAINT fk_participante_participacion FOREIGN KEY (id_participante)
 	REFERENCES participante(id),
 	CONSTRAINT fk_proyecto_participacion FOREIGN KEY (id_proyecto)
