@@ -45,3 +45,13 @@ CREATE TABLE asignacion_horas (
 	REFERENCES participacion(id)
 );
 
+CREATE TABLE liquidacion (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nombre_participante VARCHAR(100) NOT NULL,
+	apellido_participante VARCHAR(100) NOT NULL,
+	rol VARCHAR(100) NOT NULL,
+	proyecto VARCHAR(100) NOT NULL,
+	cant_horas INT NOT NULL,
+	mes_anio DATE NOT NULL,
+	fecha_liquidacion DATETIME NOT NULL
+);
