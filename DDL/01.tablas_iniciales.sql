@@ -50,8 +50,8 @@ CREATE TABLE liquidacion (
 	nombre_participante VARCHAR(100) NOT NULL,
 	apellido_participante VARCHAR(100) NOT NULL,
 	rol VARCHAR(100) NOT NULL,
-	proyecto VARCHAR(100) NOT NULL,
+	nombre_proyecto VARCHAR(100) NOT NULL,
 	cant_horas INT NOT NULL,
-	mes_anio DATE NOT NULL,
+	mes_anio VARCHAR(8) NOT NULL,
 	fecha_liquidacion DATETIME NOT NULL
 );
