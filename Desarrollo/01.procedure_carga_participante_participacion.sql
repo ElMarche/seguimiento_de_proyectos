@@ -1,4 +1,3 @@
-
 DELIMITER $$
 
 CREATE procedure carga_nuevo_participante(nuevo_nombre VARCHAR(100), nuevo_apellido varchar(100), n_dni INT, edad_participante INT)
@@ -21,3 +20,13 @@ END;
 $$
 
 
+DELIMITER $$
+
+CREATE PROCEDURE carga_nuevo_cliente (IN nro_cuit varchar(11), IN la_razon_social varchar(100), IN el_domicilio varchar(100))
+BEGIN
+
+	INSERT INTO cliente(cuit, razon_social, domicilio)
+	VALUES (nro_cuit, la_razon_social, el_domicilio);
+
+END
+$$
