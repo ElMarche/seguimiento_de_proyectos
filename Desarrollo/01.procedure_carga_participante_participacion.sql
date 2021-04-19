@@ -43,16 +43,9 @@ $$
 delimiter $$
 CREATE PROCEDURE CalcularLiquidacionMensualDiaria(IN idUsuario INT, IN mes INT)
 BEGIN
-	DECLARE done INT DEFAULT FALSE;
-	DECLARE l_nombre VARCHAR(100);
-	DECLARE l_apellido VARCHAR(100);
-	DECLARE l_rol VARCHAR(100);
-	DECLARE l_proyecto VARCHAR(100);
-	DECLARE l_horas INT;
-	DECLARE l_mesyanio VARCHAR(8);
-	DECLARE l_fecha_liq DATETIME;
-	
-	DECLARE cur_liquidacion CURSOR FOR SELECT U.nombre, U.apellido, Pa.rol, Pr.nombre AS nombre_proyecto, sum(Ah.cant_horas),
+		
+	INSERT INTO liquidacion(nombre_participante, apellido_participante, rol, nombre_proyecto, cant_horas, mes_anio, fecha_liquidacion)
+	SELECT U.nombre, U.apellido, Pa.rol, Pr.nombre AS nombre_proyecto, sum(Ah.cant_horas),
 	CONCAT(YEAR(Ah.dia), '-', MONTH(Ah.dia)), CURDATE()
 	FROM asignacion_horas Ah
 		INNER JOIN participacion Pa ON Ah.id_participacion=Pa.id
@@ -61,22 +54,5 @@ BEGIN
 		WHERE U.id = idUsuario AND MONTH(Ah.dia) = mes
 		GROUP BY U.nombre, U.apellido, Pa.rol, Pr.nombre, CONCAT(YEAR(Ah.dia), '-', MONTH(Ah.dia));
 	
-	DECLARE continue handler FOR NOT FOUND SET done = TRUE;
-	
-	OPEN cur_liquidacion;
-	
-	lectura_de_valores_para_liquidacion: loop
-	fetch cur_liquidacion INTO l_nombre, l_apellido, l_rol, l_proyecto, l_horas, l_mesyanio, l_fecha_liq;
-	
-	if done then
-		leave lectura_de_valores_para_liquidacion;
-	END if;
-	
-	INSERT INTO liquidacion(nombre_participante, apellido_participante, rol, nombre_proyecto, cant_horas, mes_anio, fecha_liquidacion)
-	VALUES (l_nombre, l_apellido, l_rol, l_proyecto, l_horas, l_mesyanio, l_fecha_liq);
-	
-	END loop;
-	
-	close cur_liquidacion;
 END;
 $$
