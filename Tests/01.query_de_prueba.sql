@@ -27,6 +27,7 @@ CALL carga_participacion (2, 3, 'Administrador', 100);
 CALL carga_participacion (4, 3, 'DevOps', 120);
 CALL carga_participacion (5, 3, 'Tester', 100);
 
+
 CALL RendicionDeHorasDiarias(6, CURDATE(), 1);
 CALL RendicionDeHorasDiarias(6, CURDATE(), 2);
 CALL RendicionDeHorasDiarias(6, CURDATE(), 3);
@@ -36,11 +37,17 @@ CALL RendicionDeHorasDiarias(6, CURDATE(), 6);
 CALL RendicionDeHorasDiarias(6, '2021-04-06', 1);
 CALL RendicionDeHorasDiarias(6, '2021-04-07', 1);
 CALL RendicionDeHorasDiarias(6, '2021-04-10', 2);
-
+CALL RendicionDeHorasDiarias(8, CURDATE(), 7);
+CALL RendicionDeHorasDiarias(6, CURDATE(), 8);
+CALL RendicionDeHorasDiarias(6, CURDATE(), 9);
+CALL RendicionDeHorasDiarias(5, CURDATE(), 10);
+CALL RendicionDeHorasDiarias(4, CURDATE(), 11);
+CALL RendicionDeHorasDiarias(7, CURDATE(), 12);
 
 
 CALL CalcularLiquidacionMensualDiaria(1, 04);
 CALL CalcularLiquidacionMensualDiaria(2, 04);
 CALL CalcularLiquidacionMensualDiaria(3, 04);
+CALL CalcularLiquidacionMensualDiaria(4, 04);
+CALL CalcularLiquidacionMensualDiaria(5, 04);
 
-SELECT * FROM liquidacion;
