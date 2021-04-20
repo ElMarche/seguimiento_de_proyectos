@@ -44,9 +44,15 @@ CALL RendicionDeHorasDiarias(5, CURDATE(), 10);
 CALL RendicionDeHorasDiarias(4, CURDATE(), 11);
 CALL RendicionDeHorasDiarias(7, CURDATE(), 12);
 
+CALL RendicionDeHorasSemanales(3, '2021-04-18', 3);
+CALL RendicionDeHorasSemanales(5, CURDATE(), 7);
 
-CALL CalcularLiquidacionMensualDiaria(1, 04);
-CALL CalcularLiquidacionMensualDiaria(2, 04);
-CALL CalcularLiquidacionMensualDiaria(3, 04);
-CALL CalcularLiquidacionMensualDiaria(4, 04);
-CALL CalcularLiquidacionMensualDiaria(5, 04);
+CALL RendicionDeHorasMensuales(2, '2021-04-20', 6);
+CALL RendicionDeHorasMensuales(8, CURDATE(), 1);
+
+CALL CalcularLiquidacionMensual(1, 04);
+CALL CalcularLiquidacionMensual(2, 04);
+CALL CalcularLiquidacionMensual(3, 04);
+CALL CalcularLiquidacionMensual(4, 04);
+CALL CalcularLiquidacionMensual(5, 04);
+CALL CalcularLiquidacionMensual(6, 04);

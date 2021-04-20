@@ -41,7 +41,41 @@ END;
 $$
 
 delimiter $$
-CREATE PROCEDURE CalcularLiquidacionMensualDiaria(IN idUsuario INT, IN mes INT)
+CREATE PROCEDURE RendicionDeHorasSemanales(IN horas INT, IN dia_actual DATE, IN idParticipacion INT)
+BEGIN
+	DECLARE contador DATE;
+	DECLARE maximo DATE;
+	
+	SET contador = dia_actual;
+	SET maximo = DATE_ADD(dia_actual, INTERVAL 1 WEEK);
+	
+	while contador <= maximo DO 
+		INSERT INTO asignacion_horas (cant_horas, dia, id_participacion)
+		VALUES (horas, contador, idParticipacion);
+		SET contador = DATE_ADD(contador, INTERVAL 1 DAY);
+	END while;
+END;
+$$
+
+delimiter $$
+CREATE PROCEDURE RendicionDeHorasMensuales(IN horas INT, IN dia_actual DATE, IN idParticipacion INT)
+BEGIN
+	DECLARE contador DATE;
+	DECLARE maximo DATE;
+	
+	SET contador = dia_actual;
+	SET maximo = DATE_ADD(dia_actual, INTERVAL 1 MONTH);
+	
+	while contador <= maximo DO 
+		INSERT INTO asignacion_horas (cant_horas, dia, id_participacion)
+		VALUES (horas, contador, idParticipacion);
+		SET contador = DATE_ADD(contador, INTERVAL 1 DAY);
+	END while;
+END;
+$$
+
+delimiter $$
+CREATE PROCEDURE CalcularLiquidacionMensual(IN idUsuario INT, IN mes INT)
 BEGIN
 		
 	INSERT INTO liquidacion(nombre_participante, apellido_participante, rol, nombre_proyecto, cant_horas, mes_anio, fecha_liquidacion)
