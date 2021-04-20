@@ -55,4 +55,3 @@ CALL CalcularLiquidacionMensual(2, 04);
 CALL CalcularLiquidacionMensual(3, 04);
 CALL CalcularLiquidacionMensual(4, 04);
 CALL CalcularLiquidacionMensual(5, 04);
-CALL CalcularLiquidacionMensual(6, 04);

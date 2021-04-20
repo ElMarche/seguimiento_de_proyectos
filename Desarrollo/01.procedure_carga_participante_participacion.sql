@@ -49,7 +49,7 @@ BEGIN
 	SET contador = dia_actual;
 	SET maximo = DATE_ADD(dia_actual, INTERVAL 1 WEEK);
 	
-	while contador <= maximo DO 
+	while contador < maximo DO 
 		INSERT INTO asignacion_horas (cant_horas, dia, id_participacion)
 		VALUES (horas, contador, idParticipacion);
 		SET contador = DATE_ADD(contador, INTERVAL 1 DAY);
@@ -66,7 +66,7 @@ BEGIN
 	SET contador = dia_actual;
 	SET maximo = DATE_ADD(dia_actual, INTERVAL 1 MONTH);
 	
-	while contador <= maximo DO 
+	while contador < maximo DO 
 		INSERT INTO asignacion_horas (cant_horas, dia, id_participacion)
 		VALUES (horas, contador, idParticipacion);
 		SET contador = DATE_ADD(contador, INTERVAL 1 DAY);
